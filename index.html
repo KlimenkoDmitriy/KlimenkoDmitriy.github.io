@@ -38,79 +38,251 @@
 
 
 <div id="content">
-	<?php
-
-		$goods = [
-			[
-				'id' => 1,
-				'productImage' => 'img/400Gala.jpg',
-				'productName' => 'Стиральный порошок GALA ручная стирка',
-				'productSize' => '400 Грамм',
-				'productPrice' => '18.00'
-			],
-			[
-				'id' => 2,
-				'productImage' => 'img/400Gala.jpg',
-				'productName' => 'Стиральный порошок TIDE ручная стирка',
-				'productSize' => '400 Грамм',
-				'productPrice' => '23.00'
-			],
-			[
-				'id' => 3,
-				'productImage' => 'img/400Gala.jpg',
-				'productName' => 'Стиральный порошок GALA автомат',
-				'productSize' => '400 Грамм',
-				'productPrice' => '25.00'
-			],
-			/*[	
-				'id' => 4,
-				'productImage' => 'img/TIDE.jpg',
-				'productName' => 'Стиральный порошок TIDe автомат',
-				'productSize' => '400 Грамм',
-				'productPrice' => '32.00'
-			],
-			[	
-				'id' => 5,
-				'productImage' => 'img/TIDE.jpg',
-				'productName' => 'Стиральный порошок TIDe автомат',
-				'productSize' => '400 Грамм',
-				'productPrice' => '32.00'
-			],
-			[	
-				'id' => 6,
-				'productImage' => 'img/TIDE.jpg',
-				'productName' => 'Стиральный порошок TIDe автомат',
-				'productSize' => '400 Грамм',
-				'productPrice' => '32.00'
-			]*/
-		];
-		/*foreach ($goods as $key => $good) {
-			echo $good['productImage'] . '<br>';
-			echo $good['productName'] . '<br>';
-			echo $good['productSize'] . '<br>';
-			echo $good['productPrice'] . '<br>';
-
-		}*/
-		
-		$page = $_GET['page'];
-		if(!isset($page)) {
-			require('home.php');
-		} elseif ($page == 'shopBasket'){
-			require('pages/shopBasket.php');
-		} elseif ($page='product') {
-			$id = $_GET['id'];
-			$good = [];
-			foreach ($goods as $product) {
-				if ($product['id'] == $id){
-					$good = $product;
-					break;
-				}
-			}
-			require('pages/openProduct.php');
-		}
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 left-sidebar" id="navigation">
+						<ul class="products">
+							<li>
+								<a href="#">
+									<i class="col-md-1 fas fa-home fa-2x"></i>
+									<span class="col-md-2 productHome">Товары для Дома</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="col-md-1 fas fa-female fa-2x "></i>
+									<span class="col-md-2 productWomen">Для Женщин</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="col-md-1 fas fa-male fa-2x"></i>
+									<span class="col-md-1 productMan">Для Мужчин</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="col-md-1 fas fa-child fa-2x"></i>
+									<span class="col-md-2 productChild">Для Детей</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="col-md-1 fas fa-spray-can fa-2x"></i>
+									<span class="col-md-2 productCosmetic">Косметика</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="col-md-1 fas fa-car fa-2x"></i>
+									<span class="col-md-2 productCar">Авто Химия</span>
+								</a>
+							</li>
+						</ul>
+					<div class="contacts">
+						<h5>Связь с нами</h5>
+						(044) 533-22-22 <br> (044) 533-88-88 <br> 0 (800) 333-345
+					</div>
+					<div class="ourStores">
+						<h5>Наши Магазины</h5>
+						г. Киев, ул. Петровича 56 <br>
+						г. Киев, ул.Гринченка 12/63
+						<button id="openMap" type="submit">Открыть Карту</button>
+					</div>
+				</div>
 
 
-	?>
+
+
+				<div class="col-md-9 main">
+
+
+
+
+					<h3 class="headerMostSale"><i class="fas fa-cart-arrow-down fa-1x"></i>Самый популярный товар</h3>
+					<div class="row catalog-mostSale">
+						<div class="col-md-1"></div>
+						<div class="col-md-3 mostSale firstMostSale">
+							<div class="row productImage"></div>
+							<div class="row productName">Стиральный порошок GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">	
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart fa-1x" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 mostSale secondMostSale">
+							<div class="row productImage"></div>
+							<div class="row productName">GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">	
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart fa-1x" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 mostSale thirdMostSale">
+							<div class="row productImage"></div>
+							<div class="row productName">GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">	
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart fa-1x" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+					
+					<h3 class="headerMostGood"><i class="fas fa-thumbs-up"></i>Лучший товар по оценке Клиентов</h3>
+					<div class="row catalog-mostSale">
+						<div class="col-md-1"></div>
+						<div class="col-md-3 mostSale firstMostGood">
+							<div class="row productImage"></div>
+							<div class="row productName">Стиральный порошок GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">	
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart fa-1x" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 mostSale secondMostGood">
+							<div class="row productImage"></div>
+							<div class="row productName">GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">	
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart fa-1x" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 mostSale thirdMostGood">
+							<div class="row productImage"></div>
+							<div class="row productName">GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart fa-1x" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+
+					<h3 class="headerLowerPrice"><i class="fas fa-money-bill-wave"></i>Самый дешевый товар</h3>
+					<div class="row catalog-lowerPrice">
+						<div class="col-md-1"></div>
+						<div class="col-md-3 lowerPrice firstLowerPrice">
+							<div class="row productImage"></div>
+							<div class="row productName">Стиральный порошок GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">	
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart fa-1x" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 lowerPrice secondLowerPrice">
+							<div class="row productImage"></div>
+							<div class="row productName">GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">	
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart fa-1x" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 LowerPrice thirdLowerPrice">
+							<div class="row productImage"></div>
+							<div class="row productName">GALA ручная стирка 400Грамм</div>
+							<div class="row productPrice">
+								<div class="col-md-7 price">18000.00<i class="fas fa-dollar-sign"></i></div>
+								<div class="col-md-4 addTo">
+									<div class="row">
+										<div class="col-md-4">
+											<a class="fas fa-heart" href="#"></a>
+										</div>	
+										<div class="col-md-4">
+											<a class="fas fa-shopping-cart" href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>	
 	
 
